@@ -1,13 +1,13 @@
 (async function iife() {
   // This is the time delay after which the "unsubscribe" button is "clicked"; Tweak to your liking!
-  var UNSUBSCRIBE_DELAY_TIME = 20;
+  var UNSUBSCRIBE_DELAY_TIME = 200;
 
   /**
    * Delay runner. Wraps `setTimeout` so it can be `await`ed on.
    * @param {Function} fn
    * @param {number} delay
    */
-  var runAfterDelay = (fn, delay) =>
+  const runAfterDelay = (fn, delay) =>
     new Promise((resolve) => {
       setTimeout(() => {
         fn();
@@ -33,7 +33,7 @@
         .querySelector(`#confirm-button`)
         // and "trigger" the click!
         .click();
-      console.log(`Unsubsribed ${ctr + 1}/${channels.length}`);
+      console.log(`Unsubscribed ${ctr + 1}/${channels.length}`);
       ctr++;
     }, UNSUBSCRIBE_DELAY_TIME);
   }
